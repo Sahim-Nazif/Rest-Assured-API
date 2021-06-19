@@ -27,4 +27,34 @@ public class ApiTests {
 
 		response.log().body();
 	}
+
+	// Posting (creating a user)
+	@Test
+	public void postUser() {
+
+		String endpoint = "https://reqres.in/api/users";
+
+		String body = "";
+		var response = given().body(body).when().post(endpoint).then();
+		response.log().body();
+
+	}
+
+	// update a user
+	@Test
+	public void updateUser() {
+		String endpoint = "https://reqres.in/api/users";
+
+		String body = "";
+		var response = given().body(body).when().put(endpoint).then();
+
+	}
+
+	// delete a user
+	@Test
+	public void deleteUser() {
+		String endpoint = "https://reqres.in/api/users";
+		String body = "";
+
+	}
 }
