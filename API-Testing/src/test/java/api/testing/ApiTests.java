@@ -16,7 +16,7 @@ public class ApiTests {
 		 * the action to be take Then : Describes the expected result
 		 */
 		String endpoint = "http://dummy.restapiexample.com/api/v1/employees";
-		var response = given().when().get(endpoint).then();
+		var response = given().when().get(endpoint).then().assertThat().statusCode(200);
 		// response.log().body();
 
 	}
@@ -59,9 +59,10 @@ public class ApiTests {
 
 	@Test
 	public void deleteUser() {
-		String endpoint = "https://reqres.in/api/users";
-		String body = "";
-		var response = given().body(body).when().delete(endpoint).then();
+		String endpoint = "http://dummy.restapiexample.com/public/api/v1/delete/";
+		User deleteUser = new User();
+		deleteUser.getId();
+		var response = given().body(deleteUser).when().delete(endpoint).then();
 		response.log().body();
 
 	}
